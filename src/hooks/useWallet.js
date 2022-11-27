@@ -293,6 +293,20 @@ export default function useWallet(peraWallet) {
 		localStorage.removeItem('PeraWallet.Wallet')
 		setConnected(false)
 		setAccount(null)
+		setOptedIn(false)
+		setInMatch(false)
+		setDefeated(false)
+		setUpgrade(false)
+		setWaveList([])
+		setGlobalStates([])
+		setShowAttack(false)
+		setCritChance(false)
+		setUpgradeStats({
+			health: 0,
+			attack: 0,
+			defense: 0
+		})
+
 	}
 
 	return {

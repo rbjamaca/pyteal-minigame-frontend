@@ -9,19 +9,15 @@ import { WriteStatus } from "../hooks/useWallet";
 export default function SendWave({
 	walletInstalled,
 	walletConnected,
-	isMumbai,
 	loading,
 	writeLoading,
-	totalWaves,
-	sendWave,
-	sendCake,
-	sendHype,
 	onTodoAction,
 	bossStats,
 	stats,
 	inMatch,
 	upgrade,
-	defeated
+	defeated,
+	optedIn
 }) {
 	const [message, setMessage] = useState("");
 	const disableInput = Boolean(writeLoading);
@@ -42,7 +38,7 @@ export default function SendWave({
 		return isNaN(val) ? 0 : val
 	}
 
-	if (inMatch || upgrade || defeated) return null
+	if (inMatch || upgrade || defeated || !walletConnected || !optedIn) return null
 
 	return (
 		<div className="boss-wrapper">

@@ -59,7 +59,7 @@ export default function App({peraWallet}) {
 					networkName={networkName}
 					connectWallet={connectWallet}
 				/>
-				<Bio stats={waveList} />
+				<Bio optedIn={optedIn} walletConnected={walletConnected}  stats={waveList} />
 				<UpgradePlayer 
 					upgrade={upgrade} 
 					upgradeStats={upgradeStats} 
@@ -88,6 +88,7 @@ export default function App({peraWallet}) {
 					sendHype={sendHype}
 				/>
 				<SendWave
+					optedIn={optedIn}
 					defeated={defeated}
 					upgrade={upgrade}
 					inMatch={inMatch}

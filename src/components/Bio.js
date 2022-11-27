@@ -1,6 +1,27 @@
 import React from "react";
 
-export default function Bio({stats}) {
+export default function Bio({stats, optedIn, walletConnected}) {
+
+	if (!walletConnected) {
+		return (
+			<div className="bio">
+				<h3>
+					Please connect your wallet first.
+				</h3>
+			</div>
+		);
+	}
+
+	if (!optedIn) {
+		return (
+			<div className="bio">
+				<h3>
+					Register to play.
+				</h3>
+			</div>
+		);
+	}
+
 	return (
 		<div className="bio">
 			<h3>
