@@ -38,6 +38,7 @@ const EvmChain = {
 
 export default function useWallet(peraWallet) {
 	const [loading, setLoading] = useState(true);
+	const [trigger, setTrigger] = useState(false)
 	const [writeLoading, setWriteLoading] = useState(WriteStatus.None);
 	const [walletInstalled, setInstalled] = useState(true);
 	const [walletConnected, setConnected] = useState(false);
@@ -160,6 +161,7 @@ export default function useWallet(peraWallet) {
 
 				await transaction.wait();
 				setWriteLoading(WriteStatus.None);
+				setTrigger(e => !e)
 			})
 			.catch((error) => {
 				window.alert("Failed to write transaction!");
@@ -241,6 +243,7 @@ export default function useWallet(peraWallet) {
 				numberToBytes(upgradeStats.attack),
 				numberToBytes(upgradeStats.defense),
 			  )
+			setTrigger(e => !e)
 		  } else {
 			appArgs.push(
 				new Uint8Array(Buffer.from(action)),
@@ -340,5 +343,7 @@ export default function useWallet(peraWallet) {
 		showAttack,
 		critChance,
 		setCritChance,
+		trigger,
+		setTrigger
 	};
 }
